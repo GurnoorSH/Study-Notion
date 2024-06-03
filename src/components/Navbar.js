@@ -6,11 +6,12 @@ import About from '../pages/About'
 import Contact from '../pages/Contact'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup'
+import toast from 'react-hot-toast'
 
 
-const Navbar = () => {
+const Navbar = ({setisLoggedin , isLoggedin}) => {
   return (
-    <div className='  bg-slate-600 flex'> 
+    <div className='  bg-slate-600 flex justify-evenly'> 
 
         
         <NavLink to ='/'> 
@@ -18,7 +19,7 @@ const Navbar = () => {
         </NavLink>
 
         <nav className='flex gap-3'> 
-            <ul> 
+            <ul className='flex gap-3'> 
                <Link to={Home}> <li> Home</li> </Link>
                <NavLink to={About}> <li>About </li> </NavLink>
                <NavLink to={Contact}> <li> Contact</li> </NavLink>
@@ -26,12 +27,13 @@ const Navbar = () => {
             </ul>
         </nav>
 
-        <div> 
-            {
-                <NavLink to={Login}>  <button>  LogIn </button></NavLink>            }
-             {   <NavLink to={Signup}>  <button>  Sign Up </button></NavLink>         }
-              {  <NavLink to={Login}>  <button>  LogIn </button></NavLink>            }
-               { <NavLink to={Login}>  <button>  LogIn </button></NavLink>            }
+        <div className='flex gap-3 mr-2 ml-6'> 
+            { !isLoggedin && <NavLink to={Login}>  <button>  LogIn </button></NavLink>            }
+             { !isLoggedin &&   <NavLink to={Signup}>  <button>  Sign Up </button></NavLink>         }
+              {  isLoggedin && <NavLink to={Login}>  <button onClick={()=> {setisLoggedin(false)
+                toast.success("Logged Out")
+              }}>  LogOut </button></NavLink>            }
+               {isLoggedin &&  <NavLink to={Login}>  <button>  DashBoard </button></NavLink>            }
         </div>
 
     </div>

@@ -7,13 +7,16 @@ import Signup from "./pages/Signup";
 import DashBoard from "./pages/DashBoard";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { useState } from "react";
 
 function App() {
+  const [isLoggedin, setisLoggedin] = useState(false)
   return (
     <div >
-      <Navbar />
+      <Navbar isLoggedin={isLoggedin} setisLoggedin={setisLoggedin} />
 
       <Routes>
+
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup />}></Route>
