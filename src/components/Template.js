@@ -1,33 +1,34 @@
 import React from "react";
-import Signup from "../pages/Signup";
-import Login from "../pages/Login";
+import SignupForm from "./SignupForm"
+import LoginForm from "./LoginForm";
+import { FcGoogle } from "react-icons/fc";
 
-const Template = ({ title, desc1, desc2, image, formtype, setisloggedin }) => {
+const Template = ({ title, desc1, desc2, image, formtype, setisLoggedin }) => {
   return (
-    <div>
-      <div>
-        <h1> {title} </h1>
-        <p>
-          <span> {desc1}</span>
-          <span> {desc2}</span>
+    <div className="flex justify-between w-11/12 max-w-[1160 px] px-12 mx-auto gap-12  ">
+      <div className="w-11/12 max-w-[450px]">
+        <h1 className="text-white font-semibold text-[1.875rem] leading-[2.375 rem]"> {title} </h1>
+        <p className=" mt-4 text-[1.125 rem] leading-[1.625rem] ">
+          <span className="text-slate-200" > {desc1}</span>
+          <span className="text-blue-100 italic"> {desc2}</span>
         </p>
-        {formtype === "signup" ? Signup : Login}
+        {formtype === "signup" ? <SignupForm setisLoggedin={setisLoggedin}/> : <LoginForm setisLoggedin={setisLoggedin}/>}
 
-        <div>
-          <div> </div>
-          <p> or </p>
-          <div></div>
+        <div className="flex w-full items-center my-4 gap-x-2">
+          <div className=" w-full h-[1px] bg-slate-600"> </div>
+          <p className="text-slate-300 font-medium leading-[1.375rem]"> or </p>
+          <div className=" w-full h-[1px] bg-slate-600"></div>
         </div>
 
-        <button> SignUp with Google </button>
+        <button className="w-full justify-center items-center rounded-[8px] font-medium text-slate-100 border border-slate-700 py-[8px] gap-x-2 mt-6"> <FcGoogle /> SignUp with Google </button>
       </div>
 
-      <div>
+      <div className=" relative w-11/12 max-w-[450px]">
      
         <img src="" alt="pat" width={558} height={584} loading="lazy">
   
         </img>
-        <img src="" alt="pat" width={558} height={490} loading="lazy">
+        <img className='absolute top-4 right-4 'src="" alt="pat" width={558} height={490} loading="lazy">
           
         </img>
       </div>
