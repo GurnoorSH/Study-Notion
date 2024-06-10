@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import bogo from "../assets/bogo.png";
-import Login from "../pages/Login";
 import toast from "react-hot-toast";
 import {  useNavigate } from "react-router-dom";
 
@@ -12,12 +11,12 @@ const Navbar = ({ setisLoggedin, isLoggedin }) => {
   return (
     <div className="  flex justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
       <NavLink to="/">
-        <img src={bogo} alt="ll" width={160} height={32} loading="lazy" />
+        <img src={bogo} alt="ll"className="rounded-full transform transition-transform duration-300 hover:scale-110" width={100} height={22} loading="lazy" />
       </NavLink>
 
       <nav className="flex  ">
         <ul className="flex gap-x-6 text-white">
-          <Link to="/home">
+          <Link to="/">
             {" "}
             <li> Home</li>{" "}
           </Link>
@@ -65,7 +64,7 @@ const Navbar = ({ setisLoggedin, isLoggedin }) => {
           </NavLink>
         )}
         {isLoggedin && (
-          <NavLink to={Login}>
+          <NavLink to="/dashboad">
             {" "}
             <button className="bg-slate-800 text-white py-[8px] px-[12px] rounded-[8px] border-slate-900 "> DashBoard </button>
           </NavLink>
