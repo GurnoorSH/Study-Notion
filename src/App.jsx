@@ -8,6 +8,7 @@ import DashBoard from "./pages/DashBoard";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { useState } from "react";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const [isLoggedin, setisLoggedin] = useState(false)
@@ -20,9 +21,9 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login setisLoggedin={setisLoggedin}/>}></Route>
         <Route path="/signup" element={<Signup setisLoggedin={setisLoggedin} />}></Route>
-        <Route path="/dashboard" element={<DashBoard/>}></Route>
         <Route path="/about" element={<About/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
+        <Route path="/dashboard" element={<PrivateRoute isLoggedin={isLoggedin}><DashBoard/></PrivateRoute>}></Route>
 
       </Routes>
     </div>
