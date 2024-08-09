@@ -37,7 +37,7 @@ const Template = ({ title, desc1, desc2, image, formtype, setisLoggedin }) => {
       <div className=" relative w-11/12 max-w-[450px] pt-10">
         <img src={rat} alt="pat" width={558} height={584} loading="lazy"></img>
         <img
-          className="absolute top-4 right-4 "
+          className="absolute top-4 right-4 rounded-md"
           src={image}
           alt="pat"
           width={558}

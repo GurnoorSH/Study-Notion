@@ -1,6 +1,6 @@
 import React from "react";
 import Template from "../components/Template";
-import images from "../assets/images.png"
+import images from "../assets/abc.jpg"
 const Login = ({setisLoggedin}) => {
   return (
     <div>
